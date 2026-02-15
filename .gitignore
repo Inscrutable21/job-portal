@@ -29,5 +29,12 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
+application.yaml
+application-*.yaml
+!application-example.yaml
+
+# Credentials
+credentials.json
+.env
 ### VS Code ###
 .vscode/
