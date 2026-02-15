@@ -1,3 +1,36 @@
 spring:
   application:
     name: portal
+
+    thymeleaf:
+      cache: false
+      mode: HTML
+      encoding: UTF-8
+
+      datasource:
+        url: jdbc:mysql://localhost:3306/form_portal?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
+        username: root
+        password: your_password
+        driver-class-name: com.mysql.cj.jdbc.Driver
+
+        jpa:
+          hibernate:
+            ddl-auto: update
+          show-sql: true
+
+          google:
+            sheets:
+              credentials-path: classpath:credentials.json
+              spreadsheet-id: YOUR_SPREADSHEET_ID
+              range: "Form Responses 1!A:Z"
+
+            batch:
+              size: 100
+              cron: "0 */5 * * * *"
+
+          server:
+            port: 8080
+
+          logging:
+            level:
+              com.example.portal: DEBUG
